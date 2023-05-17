@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Idade Planetária</title>
+</head>
+<body>
+    <h1>Calculadora de Idade Planetária</h1>
+    <label>
+        Idade em anos terrestres:
+        <input type="number" id="age" />
+    </label>
+    <br />
+    <label>
+        Planeta:
+        <select id="planet">
+            <option value="">Selecione um planeta</option>
+            <option value="Mercurio">Mercúrio</option>
+            <option value="Venus">Vênus</option>
+            <option value="Terra">Terra</option>
+            <option value="Marte">Marte</option>
+            <option value="Jupiter">Júpiter</option>
+            <option value="Saturno">Saturno</option>
+            <option value="Urano">Urano</option>
+            <option value="Netuno">Netuno</option>
+        </select>
+    </label>
+    <br />
+    <button onclick="calculateAge()">Calcular Idade</button>
+    <br />
+    <br />
+    <div id="result"></div>
+
+    <script>
+      function calculateAge() {
+        const age = document.getElementById("age").value;
+        const planet = document.getElementById("planet").value;
+        let ageOnPlanet;
+
+        switch (planet) {
+          case "Mercurio":
+            ageOnPlanet = age / 0.24;
+            break;
+          case "Venus":
+            ageOnPlanet = age / 0.62;
+            break;
+          case "Terra":
+                ageOnPlanet = age  * 1;
+            break;
+          case "Marte":
+            ageOnPlanet = age / 1.88;
+            break;
+          case "Jupiter":
+            ageOnPlanet = age / 11.86;
+            break;
+          case "Saturno":
+            ageOnPlanet = age / 29.46;
+            break;
+          case "Urano":
+            ageOnPlanet = age / 84.01;
+            break;
+          case "Netuno":
+            ageOnPlanet = age / 164.79;
+            break;
+          default:
+            ageOnPlanet = "Por favor, selecione um planeta";
+        }
+
+        document.getElementById("result").innerHTML = `Sua idade em ${planet} é ${ageOnPlanet.toFixed(2)} anos.`;
+      }
+    </script>
+</body>
+</html>
